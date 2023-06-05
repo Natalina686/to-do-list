@@ -11,32 +11,32 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Список завдань</title>
+    <title>List of tasks</title>
   </head>
   <body>
     <div class="container">
       <div class="create-task-block">
         <form class="create-task-form">
-          <h3 class="task-title">Нове завдання:</h3>
+          <h3 class="task-title">New task:</h3>
           <div class="input-field">
-            <input type="text" name="task" class="task-input" />
+            <input type="text" name="task" class="task-input" placeholder="Create task"/>
           </div>
-          <button type="submit" class="btn">Додати завдання</button>
+          <button type="submit" class="btn">Add task</button>
         </form>
       </div>
 
       <div class="filter-task-block">
-        <h3 class="task-title">Список завдань:</h3>
+        <h3 class="task-title">List of tasks:</h3>
         <div class="input-field">
           <input
             type="text"
             name="filter"
             class="filter-input"
-            placeholder="Пошук завдань"
+            placeholder="Search task"
           />
         </div>
         <ul class="collection"></ul>
-        <button class="clear-tasks btn">Видалити всі завдання</button>
+        <button class="clear-tasks btn">Delite all tasks</button>
       </div>
     </div>
     <script src="script.js"></script>

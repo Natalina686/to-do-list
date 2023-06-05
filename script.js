@@ -19,17 +19,13 @@ const getTasksFromLocalStorage = () => {
 const storeTaskInLocalStorage = (task) => {
   const tasks = getTasksFromLocalStorage();
   tasks.push(task);
-
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 };
 
 const removeTaskFromLocalStorage = (deletedTask) => {
   const tasks = getTasksFromLocalStorage();
-
-  // other variant .filter
   const deletedIndex = tasks.findIndex((task) => task === deletedTask);
   tasks.splice(deletedIndex, 1);
-
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 };
 
@@ -37,7 +33,6 @@ const clearTasksFromLocalStorage = () => {
   localStorage.removeItem(STORAGE_KEY);
 };
 
-// "tasks" functions
 const getTasks = () => {
   const tasks = getTasksFromLocalStorage();
 
@@ -51,7 +46,6 @@ const getTasks = () => {
     taskText.innerHTML = '<i class="fa fa-remove"></i>';
     li.append(taskText);
 
-    // Append li to ul
     taskList.append(li);
   });
 };
@@ -59,15 +53,13 @@ const getTasks = () => {
 const addTask = (event) => {
   event.preventDefault();
 
-  // Пусте значення або пробіли
   if (taskInput.value.trim() === "") {
     return;
   }
 
-  // Create and add LI element
   const li = document.createElement("li");
   li.className = "collection-item";
-  li.textContent = taskInput.value; // значення яке ввів користувач
+  li.textContent = taskInput.value; 
 
   const taskText = document.createElement("span");
   taskText.className = "delete-item";
@@ -87,11 +79,9 @@ const removeTask = (event) => {
   const isDeleteIcon = event.target.classList.contains("fa-remove");
 
   if (isDeleteIcon) {
-    const isApproved = confirm("Ви впевнені що хочете видалити це завдання?");
+    const isApproved = confirm("Are you sure?");
 
     if (isApproved) {
-      // remove from DOM
-      // console.log(event.target.parentElement.parentElement);
       const deletedLi = event.target.closest("li");
       deletedLi.remove();
 
@@ -113,7 +103,6 @@ const filterTasks = (event) => {
     const item = task.firstChild.textContent.toLowerCase();
 
     if (item.includes(text)) {
-      // task.style.display = "block"; // task.hidden = true
       task.style.display = "list-item";
     } else {
       task.style.display = "none";
@@ -121,14 +110,8 @@ const filterTasks = (event) => {
   });
 };
 
-// init
+
 getTasks();
-
-// Event listeners
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   getTasks();
-// });
 
 form.addEventListener("submit", addTask);
 
