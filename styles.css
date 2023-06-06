@@ -11,7 +11,7 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     background: #9a9999cf;
 }
 
@@ -19,6 +19,7 @@ body {
   width: 60%;
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
 }
 
 .btn {
@@ -124,4 +125,8 @@ input[type="text"] {
   color: #0d0808;
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.icon-item {
+  margin-left: 10px;
 }
