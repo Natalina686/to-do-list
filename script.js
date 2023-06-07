@@ -22,7 +22,7 @@ const storeTaskInLocalStorage = (task) => {
 localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 };
 
-
+// старий варіант
 // const storeEditedTaskInLocalStorage = (editedTask) => {
 //   let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY));
 // const editedTaskIndex = tasks.findIndex(task => task.taskId === Number(editedTask.taskId));
