@@ -23,10 +23,17 @@ localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 };
 
 
+// const storeEditedTaskInLocalStorage = (editedTask) => {
+//   let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY));
+// const editedTaskIndex = tasks.findIndex(task => task.taskId === Number(editedTask.taskId));
+//   tasks[editedTaskIndex].taskContent = editedTask.taskContent;
+//   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+// };
+
 const storeEditedTaskInLocalStorage = (editedTask) => {
-  let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY));
-const editedTaskIndex = tasks.findIndex(task => task.taskId === Number(editedTask.taskId));
-  tasks[editedTaskIndex].taskContent = editedTask.taskContent;
+  let tasks = getTasksFromLocalStorage();
+const editedTaskIndex = tasks.findIndex((task) => task.id !== editedTask);
+  tasks[editedTaskIndex].value = editedTask;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 };
 
@@ -41,6 +48,10 @@ const removeTaskFromLocalStorage = (taskId) => {
 const clearTasksFromLocalStorage = () => {
   localStorage.removeItem(STORAGE_KEY);
 };
+
+// Стосовно редагування - така ж сама проблема у функції storeEditedTaskInLocalStorage
+// Якщо у тебе буде 2 todo з однаковим текстом - то у localStorage зміниться тільки перша. 
+// Тому тобі тут також потрібно використовувати логіку з taskId , як і для видалення
 
 
 // "icons" functions
